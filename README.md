@@ -14,4 +14,3 @@ Timeline:
   * Corrin to make overlying interface, logins, stuff like that.
   * Rebecca to take user input and create something that can be made into a place "object" whateveryoucallit.
   * Natan to make maps.
-* Okay, we need all three group members here to really make a good timeline.
