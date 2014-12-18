@@ -2,6 +2,7 @@ Free-Food-Finder
 ================
 
 Group Leader: Rebecca
+
 Subordinate Members: Corrin, Natan
 
 Project: An application to locate free food near you!
