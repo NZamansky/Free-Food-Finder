@@ -1,0 +1,6 @@
+var map = new google.maps.Map(document.getElementById('map'), {
+    zoom:12,
+    center:navigator.geolocation()
+});
+
+map.data.loadGeoJson('https://storage.googleapis.com/maps-devrel/google.json');
