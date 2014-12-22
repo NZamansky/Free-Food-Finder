@@ -11,7 +11,7 @@ console.log("Hello");
     }
     }*/
 
-var coords = navigator.geolocation.getCurrentPosition();
+var coords = getCurrentPosition();
 console.log(coords);
 
 mapUrl = mapUrl + coords.latitude+','+coords.longitude;
