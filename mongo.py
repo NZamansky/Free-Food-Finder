@@ -1,7 +1,7 @@
 from flask import Flask,request,redirect,render_template,session
 from pymongo import Connection,MongoClient
 
-#using mongo stuff
+##### users #####
 
 conn = Connection()
 db = conn['free-food-finder']
@@ -19,10 +19,19 @@ def check(username, password):
     else:
         return True
 
-def addMarker(location, people, 
+##### markers #####
     
+def addMarker(location, time, people, food):
+    db.markers.insert( {'location':location, 'time':time, 'people':people, 'food': food } )
+    print "added"
 
+#def updateLocation
+#def updateTime
+#def updatePeople
+#def update food
+
+##### testing #####
+
+    
 addUser('rebecca': 'hello')
 
-##add marker
-##update marker
