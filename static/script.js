@@ -2,16 +2,12 @@ var mapUrl = "https://www.google.com/maps/embed/v1/view?key=AIzaSyATf-MrlFDWnyXH
 
 console.log("Hello");
 
-/*var getPos = function(position){
-    if(navigator.geolocation){
-	return {'lat':position.coords.latitude, 'lng':position.coords.longitude};
-    }
-    else{
-	return {'lat':0,'lng':0};
-    }
-    }*/
+function returnPosition(pos){
+    var coords=pos.coords;
+    return coords;
+}
 
-var coords = getCurrentPosition();
+var coords = navigator.geolocation.getCurrentPosition(returnPosition);
 console.log(coords);
 
 mapUrl = mapUrl + coords.latitude+','+coords.longitude;
