@@ -6,10 +6,15 @@ function returnPosition(pos){
     var coords=pos.coords;
     return coords;
 }
+function error(err) {
+  console.warn('ERROR(' + err.code + '): ' + err.message);
+};
 
-var coords = navigator.geolocation.getCurrentPosition(returnPosition);
+console.log(geoPosition.init());
+
+var coords = (navigator.geolocation.getCurrentPosition(returnPosition,error));
 console.log(coords);
 
-mapUrl = mapUrl + coords.latitude+','+coords.longitude;
-var map = document.getElementById('map');
-map.innerHTML = '<iframe width="400" height="400" src="'+mapUrl+'"></iframe>';
+//mapUrl = mapUrl + coords.latitude+','+coords.longitude;
+//var map = document.getElementById('map');
+//map.innerHTML = '<iframe width="400" height="400" src="'+mapUrl+'"></iframe>';
