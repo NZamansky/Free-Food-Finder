@@ -21,11 +21,16 @@ def check(username, password):
 
 ##### markers #####
     
-def addMarker(location, time, people, food):
-    db.markers.insert( {'location':location, 'time':time, 'people':people, 'food': food } )
+def addMarker(name, location, time, people, food):
+    db.markers.insert( {'name': name, 'location':location, 'time':time, 'people':people, 'food': food } )
     print "added"
 
-#def updateLocation
+def updateLocation(name, newLocation):
+    db.markers.update( {'name':name}, {'location':newLocation} )
+    return True
+
+
+
 #def updateTime
 #def updatePeople
 #def update food
@@ -33,5 +38,5 @@ def addMarker(location, time, people, food):
 ##### testing #####
 
     
-addUser('rebecca': 'hello')
+addUser('rebecca', 'hello')
 
