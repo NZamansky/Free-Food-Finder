@@ -2,17 +2,17 @@ var mapUrl = "https://www.google.com/maps/embed/v1/view?key=AIzaSyATf-MrlFDWnyXH
 
 console.log("Hello");
 
-function returnPosition(pos){
+function success(pos){
     var coords=pos.coords;
     return coords;
 }
-function error(err) {
-  console.warn('ERROR(' + err.code + '): ' + err.message);
+function failure() {
+  alert('ERROR: Position indeterminable');
 };
 
-console.log(geoPosition.init());
+geoPosition.init();
 
-var coords = (navigator.geolocation.getCurrentPosition(returnPosition,error));
+var coords = (geoPosition.getCurrentPosition(success,failure));
 console.log(coords);
 
 //mapUrl = mapUrl + coords.latitude+','+coords.longitude;
