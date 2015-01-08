@@ -12,7 +12,7 @@ function failure() {
 geoPosition.init();
 
 var coords = (geoPosition.getCurrentPosition(success,failure));
-console.log(coords.latitude);
+console.log(coords);
 
 //mapUrl = mapUrl + coords.latitude+','+coords.longitude;
 //var map = document.getElementById('map');
