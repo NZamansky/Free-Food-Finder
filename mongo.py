@@ -25,8 +25,11 @@ def addMarker(name, location, time, people, food):
     db.markers.insert( {'name': name, 'location':location, 'time':time, 'people':people, 'food': food } )
     print "added"
 
-def updateLocation(name, newLocation):
-    db.markers.update( {'name':name}, {'location':newLocation} )
+def updateLocation(name, location):
+    #time = db.markers.find({'name':name},{id=0, 'time': 1})
+   # people = db.markers.find({'name':name},{id=0}
+    #food =
+   # db.markers.update( {'name':name}, {'name':name, 'location':location, 'time':time, 'peoplle} )'
     return True
 
 
@@ -39,4 +42,5 @@ def updateLocation(name, newLocation):
 
     
 addUser('rebecca', 'hello')
-
+thing=  db.users.find({'name':'rebecca'})
+print thing['name']
