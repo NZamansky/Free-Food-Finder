@@ -1,9 +1,8 @@
 var mapUrl = "https://www.google.com/maps/embed/v1/view?key=AIzaSyATf-MrlFDWnyXHfZEXgRrZny6xA3r19h";
 
-console.log("Hello");
-
 function success(pos){
     var coords=pos.coords;
+    console.log(coords.latitude);
     return coords;
 }
 function failure() {
