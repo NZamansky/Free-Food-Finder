@@ -25,22 +25,50 @@ def addMarker(name, location, time, people, food):
     db.markers.insert( {'name': name, 'location':location, 'time':time, 'people':people, 'food': food } )
     print "added"
 
-def updateLocation(name, location):
-    #time = db.markers.find({'name':name},{id=0, 'time': 1})
-   # people = db.markers.find({'name':name},{id=0}
-    #food =
-   # db.markers.update( {'name':name}, {'name':name, 'location':location, 'time':time, 'peoplle} )'
+def updateLocation(name, newLocation):
+    cursor = db.markers.find({'name':name})
+    marker = cursor.next()
+    time = marker['time']
+    people = marker['people']
+    food = marker['food']
+    db.markers.update( {'name':name}, {'name':name, 'location':newLocation, 'time':time, 'people':people, 'food':food} )
+    return True
+
+def updateTime(name, newTime):
+    cursor = db.markers.find({'name':name})
+    marker = cursor.next()
+    location = marker['location']
+    people = marker['people']
+    food = marker['food']
+    db.markers.update( {'name':name}, {'name':name, 'location':location, 'time':newTime, 'people':people, 'food':food} )
     return True
 
 
+def updatePeople(name, newPeople):
+    cursor = db.markers.find({'name':name})
+    marker = cursor.next()
+    time = marker['time']
+    location = marker['location']
+    food = marker['food']
+    db.markers.update( {'name':name}, {'name':name, 'location':location, 'time':time, 'people':newPeople, 'food':food} )
+    return True
 
-#def updateTime
-#def updatePeople
-#def update food
+def updateFood(name, newFood):
+    cursor = db.markers.find({'name':name})
+    marker = cursor.next()
+    time = marker['time']
+    people = marker['people']
+    location = marker['location']
+    db.markers.update( {'name':name}, {'name':name, 'location':location, 'time':time, 'people':people, 'food':newFood} )
+    return True
 
 ##### testing #####
 
     
-addUser('rebecca', 'hello')
-thing=  db.users.find({'name':'rebecca'})
-print thing['name']
+#addUser('rebecca', 'hello')
+#thing=  db.users.find({'name':'rebecca'})
+#dict = thing.next()
+#print dict['name']
+
+addMarker('free food', 'upper west side', 3, 20, 'bagels')
+updateLocation('free food', 'lower east side')
