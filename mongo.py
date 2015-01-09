@@ -43,7 +43,6 @@ def updateTime(name, newTime):
     db.markers.update( {'name':name}, {'name':name, 'location':location, 'time':newTime, 'people':people, 'food':food} )
     return True
 
-
 def updatePeople(name, newPeople):
     cursor = db.markers.find({'name':name})
     marker = cursor.next()
