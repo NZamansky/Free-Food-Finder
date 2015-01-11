@@ -94,4 +94,5 @@ def getFood(name):
 #print dict['name']
 
 addMarker('free food', 'upper west side', 3, 20, 'bagels')
-updateLocation('free food', 'lower east side')
+#updateLocation('free food', 'lower east side')
+#print getPeople('free food')
