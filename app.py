@@ -93,27 +93,30 @@ def getFood(name):
 def index():
     error = ""
     session["loggedIn"] = False
-
-    if request.form['b'] == "signUp":
-        name = request.form['uname']
-        password = request.form['pword']
-        user = db.users.find( {'name':name} ).count()
-        if user > 0:
-            error = "This username already exists"
-        else:
-            db.users.insert( {'name': name, 'password': password} )
-            session['loggedIn'] = True
-
+    
     if request.method == 'POST':
-          name = request.form["uname"]
-          password = request.form["pword"]
-          
-          user = db.users.find( {'name':name, 'password':password} ).count()
-          print user
-          if user <= 0:
-              error = "Check your username or password"
-          else:
-              session["loggedIn"] = True
+        
+        #signing up
+        if request.form['b'] == "signUp":
+            name = request.form['uname']
+            password = request.form['pword']
+            user = db.users.find( {'name':name} ).count()
+            if user > 0:
+                error = "This username already exists"
+            else:
+                db.users.insert( {'name': name, 'password': password} )
+                session['loggedIn'] = True
+
+        ##logging in
+        name = request.form["uname"]
+        password = request.form["pword"]
+            
+        user = db.users.find( {'name':name, 'password':password} ).count()
+        print user
+        if user <= 0:
+            error = "Check your username or password"
+        else:
+            session["loggedIn"] = True
 
     if session["loggedIn"]:
         print session
