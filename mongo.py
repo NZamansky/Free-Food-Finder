@@ -61,6 +61,30 @@ def updateFood(name, newFood):
     db.markers.update( {'name':name}, {'name':name, 'location':location, 'time':time, 'people':people, 'food':newFood} )
     return True
 
+def getLocation(name):
+    cursor = db.markers.find({'name':name})
+    marker = cursor.next()
+    location = marker['location']
+    return location
+
+def getTime(name):
+    cursor = db.markers.find({'name':name})
+    marker = cursor.next()
+    time = marker['time']
+    return time
+
+def getPeople(name):
+    cursor = db.markers.find({'name':name})
+    marker = cursor.next()
+    people = marker['people']
+    return people
+
+def getFood(name):
+    cursor = db.markers.find({'name':name})
+    marker = cursor.next()
+    food = marker['food']
+    return food
+
 ##### testing #####
 
     
