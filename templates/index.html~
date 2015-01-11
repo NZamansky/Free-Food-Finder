@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="script.js"></script>
+    <script type="text/javascript" src="https://rawgit.com/estebanav/javascript-mobile-desktop-geolocation/master/js/geoPosition.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATf-MrlFDWnyXHfZEXgRrZny6xA3r19hk"></script>
   </head>
 
   <body>
-    <div id="map"></div>
-  </body>
+    <div id="map">Map</div>
+    <script src="static/script.js"></script>
+   </body>
 </html>

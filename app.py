@@ -3,9 +3,6 @@ from pymongo import Connection,MongoClient
 
 app=Flask(__name__)
 
-
-
-
 ##### users #####
 
 conn = Connection()
@@ -94,8 +91,42 @@ def getFood(name):
 
 @app.route("/", methods=['GET','POST'])
 def index():
-    return render_template("index.html")
+    error = ""
+    session["loggedIn"] = False
+
+    if request.form['b'] == "signUp":
+        name = request.form['uname']
+        password = request.form['pword']
+        user = db.users.find( {'name':name} ).count()
+        if user > 0:
+            error = "This username already exists"
+        else:
+            db.users.insert( {'name': name, 'password': password} )
+            session['loggedIn'] = True
+
+    if request.method == 'POST':
+          name = request.form["uname"]
+          password = request.form["pword"]
+          
+          user = db.users.find( {'name':name, 'password':password} ).count()
+          print user
+          if user <= 0:
+              error = "Check your username or password"
+          else:
+              session["loggedIn"] = True
+
+    if session["loggedIn"]:
+        print session
+        return render_template("index.html", loggedIn = True, name = name, error = error)
+    else:
+        return render_template("index.html", loggedIn = False, error = error)
+
+@app.route("/login", methods=['GET','POST'])
+def login():
+    return render_template("login.html")
+
 
 if __name__=="__main__":
+    app.secret_key = "12345"
     app.debug=True
     app.run(host="0.0.0.0",port=8000)
