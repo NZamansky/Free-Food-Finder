@@ -1,13 +1,17 @@
-var mapUrl = "https://www.google.com/maps/embed/v1/view?key=AIzaSyATf-MrlFDWnyXHfZEXgRrZny6xA3r19h";
+var mapUrl = "https://www.google.com/maps/embed/v1/view?key=AIzaSyB0fUiZ7AkUxevDyCRROQd4XaWPwDhrSyE";
 
 var latitude;
 var longitude;
 
+console.log(latitude);
+
 function success(pos){
     var coords=pos.coords;
-    latitude = coords.latitude;
-    longitude = coords.longitude;
-    return coords;
+    var latitude = coords.latitude;
+    console.log(latitude);
+    var longitude = coords.longitude;
+    
+    return ""+latitude+","+longitude;
 }
 function failure() {
   alert('ERROR: Position indeterminable');
@@ -15,9 +19,11 @@ function failure() {
 
 geoPosition.init();
 
-var coords = (geoPosition.getCurrentPosition(success,failure));
-console.log(coords.latitude);
+var coords = geoPosition.getCurrentPosition(success,failure);
 
-mapUrl = mapUrl + '&center=' + latitude+','+longitude+"&zoom=13&size=400x400";
+mapUrl = mapUrl + '&center=' + coords;
+
+console.log(mapUrl);
+
 var map = document.getElementById('map');
 map.innerHTML = '<iframe width="400" height="400" src="'+mapUrl+'"></iframe>';
