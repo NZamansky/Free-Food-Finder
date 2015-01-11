@@ -1,0 +1,14 @@
+from flask import Flask,request,redirect,render_template,session
+from pymongo import Connection,MongoClient
+
+#using mongo stuff
+
+conn = Connection()
+db = conn['free-food-finder']
+
+def addUser(username, password):
+    db.users.insert( {'name': username, 'password': password} )
+    print "added"
+
+def check(username, password):
+    db.users.find( {username:password} )
