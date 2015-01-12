@@ -1,0 +1,39 @@
+<!-- Having problems? Read comments like these, they notify about potential bugs. -->
+
+
+
+<html>
+  <head>
+   <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  </head>
+	<!-- there probably is a more efficient sty;e tag sort of thing but this is easier and doesn't really affect anything. -->
+	<style>
+	h1 {text-align:center;}
+	h4 {text-align:center;}
+	form {text-align:center;}
+</style>
+  <body>
+    <h1>Login to the Free Food Finder!</h1>
+
+    
+    
+    <form method="POST",  class="pure-form">
+      <fieldset>
+      <input type="text" name="uname" placeholder="Username">
+      <input type="password" name="pword" placeholder="Password">
+          <p>
+	<input type="submit" name="b" value="login" class="pure-button pure-button-primary" formaction= "        ">
+	<!-- put URL HERE for logging in -->
+	<input type="submit" name="b" value="clear" class="pure-button pure-button-primary">
+	<br>
+	<h4>New user? Fill in your desired username and password and then click below to create an account.</h4> <!-- I'll have to check to make sure this actually sends the input fields, though I see no reason why it wouldn't. -->
+	<input type="submit" name="b" value="Sign up"  class="pure-button pure-button-primary" formaction="testfile.py">
+	<!-- put URL HERE for new users (testfile is for testing, it can be changed freely for your purposes). -->
+	</fieldset>
+    </form>
+
+ 
+    
+
+  </body>
+</html>

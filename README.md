@@ -14,6 +14,8 @@ Timeline:
   * Corrin to make overlying interface, logins, stuff like that.
   * Rebecca to take user input and create something that can be made into a place "object" whateveryoucallit.
   * Natan to make maps.
+* 01/11 - Get together and form some sort of a coherent website
+* Beyond: add markers
 
 Stuff to add later:
 * Certified vendors
