@@ -3,30 +3,15 @@ from pymongo import Connection,MongoClient
 
 app=Flask(__name__)
 
-##### users #####
-
-conn = Connection()
-db = conn['free-food-finder']
-
-def addUser(username, password):
-    db.users.insert( {'name': username, 'password': password} )
-    print "added"
-
-def check(username, password):
-    user = db.users.find( {'name':username, 'password':password} )
-
-    if user == None:
-        print "Check your username or password"
-        return False
-    else:
-        return True
-
 ##### markers #####
     
 def addMarker(name, location, time, people, food):
     db.markers.insert( {'name': name, 'location':location, 'time':time, 'people':people, 'food': food } )
     print "added"
 
+
+#updating fields
+    
 def updateLocation(name, newLocation):
     cursor = db.markers.find({'name':name})
     marker = cursor.next()
@@ -63,6 +48,9 @@ def updateFood(name, newFood):
     db.markers.update( {'name':name}, {'name':name, 'location':location, 'time':time, 'people':people, 'food':newFood} )
     return True
 
+
+#get methods
+
 def getLocation(name):
     cursor = db.markers.find({'name':name})
     marker = cursor.next()
@@ -88,6 +76,7 @@ def getFood(name):
     return food
 
 
+##### web app #####
 
 @app.route("/", methods=['GET','POST'])
 def index():
@@ -98,32 +87,38 @@ def index():
         
         #signing up
         if request.form['b'] == "signUp":
+
             name = request.form['uname']
             password = request.form['pword']
+
             user = db.users.find( {'name':name} ).count()
+
             if user > 0:
                 error = "This username already exists"
-            else:
+            else: #creating a new document in the data base
                 db.users.insert( {'name': name, 'password': password} )
                 session['loggedIn'] = True
 
-        ##logging in
+        #logging in
+        #note: once you sign in, we log you in
+        
         name = request.form["uname"]
         password = request.form["pword"]
             
         user = db.users.find( {'name':name, 'password':password} ).count()
-        print user
+        #print user
         if user <= 0:
             error = "Check your username or password"
         else:
-            session["loggedIn"] = True
+            session["loggedIn"] = True #you are logged in!
 
     if session["loggedIn"]:
-        print session
+       #print session
         return render_template("index.html", loggedIn = True, name = name, error = error)
     else:
         return render_template("index.html", loggedIn = False, error = error)
 
+#login page
 @app.route("/login", methods=['GET','POST'])
 def login():
     return render_template("login.html")
