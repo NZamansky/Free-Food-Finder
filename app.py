@@ -90,10 +90,12 @@ def index():
 
             name = request.form['uname']
             password = request.form['pword']
-
+            
+            #finds (and counts) the number of times a username is in the database
             user = db.users.find( {'name':name} ).count()
 
             if user > 0:
+                #the number of documents in the database with that same name is not zero
                 error = "This username already exists"
             else: #creating a new document in the data base
                 db.users.insert( {'name': name, 'password': password} )
