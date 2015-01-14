@@ -74,7 +74,8 @@ def getFood(name):
     marker = cursor.next()
     food = marker['food']
     return food
-
+    
+##### ^^^^^ markers ^^^^^ #####
 
 ##### web app #####
 
