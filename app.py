@@ -91,6 +91,9 @@ def index():
 
             name = request.form['uname']
             password = request.form['pword']
+
+            #initializing the database
+            db.users.insert( {'name': "rebecca"})
             
             #finds (and counts) the number of times a username is in the database
             user = db.users.find( {'name':name} ).count()
