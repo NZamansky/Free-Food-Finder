@@ -3,6 +3,9 @@ from pymongo import Connection,MongoClient
 
 app=Flask(__name__)
 
+conn = Connection()
+db = conn['free-food-finder']
+
 ##### markers #####
     
 def addMarker(name, location, time, people, food):
