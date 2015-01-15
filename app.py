@@ -117,7 +117,8 @@ def index():
         user = db.users.find( {'name':name, 'password':password} ).count()
         #print user
         if user <= 0:
-            error = "Check your username or password"
+	    if error!="This username already exists":
+                error = "Check your username or password"
         else:
             session["loggedIn"] = True #you are logged in!
 
