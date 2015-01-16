@@ -27,6 +27,10 @@ def addMarker(name, location, time, people, food):
     db.markers.insert( {'name': name, 'location':location, 'time':time, 'people':people, 'food': food } )
     print "added"
 
+addMarker("Test","0,0","12:10","Me","Doughnuts");
+addMarker("Test","1,0","12:10","You","Blintzes");
+addMarker("Test","0,1","12:10","Some Guy","Fried Food");
+
 def updateLocation(name, newLocation):
     cursor = db.markers.find({'name':name})
     marker = cursor.next()
@@ -87,7 +91,29 @@ def getFood(name):
     food = marker['food']
     return food
 
+#Pulls markers from the database and makes something usable out of them.
+def getMarkers():
+    script= ""
+    for marker in db.markers.find():
+        script+="""var marker = new google.maps.Marker({
+        position: new google.maps.LatLng("""+marker['location']+"""),
+        map: map,
+        ////title: \""""+marker['food']+"""\"
+        });"""
+    return script
 
+#Putting these into the read js file.
+f = open("static/script.js",'r')
+script = f.read()
+f.close()
+
+script = script.replace("//Insert markers here",getMarkers())
+
+f = open("static/run.js",'w')
+f.write(script)
+f.close()
+
+markers = getMarkers()
 
 @app.route("/", methods=['GET','POST'])
 def index():
@@ -120,9 +146,9 @@ def index():
 
     if session["loggedIn"]:
         print session
-        return render_template("index.html", loggedIn = True, name = name, error = error)
+        return render_template("index.html", loggedIn = True, name = name, error = error, markers=markers)
     else:
-        return render_template("index.html", loggedIn = False, error = error)
+        return render_template("index.html", loggedIn = False, error = error, markers=markers)
 
 @app.route("/login", methods=['GET','POST'])
 def login():
