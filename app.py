@@ -3,23 +3,8 @@ from pymongo import Connection,MongoClient
 
 app=Flask(__name__)
 
-##### users #####
-
 conn = Connection()
 db = conn['free-food-finder']
-
-def addUser(username, password):
-    db.users.insert( {'name': username, 'password': password} )
-    print "added"
-
-def check(username, password):
-    user = db.users.find( {'name':username, 'password':password} )
-
-    if user == None:
-        print "Check your username or password"
-        return False
-    else:
-        return True
 
 ##### markers #####
     
@@ -27,10 +12,12 @@ def addMarker(name, location, time, people, food):
     db.markers.insert( {'name': name, 'location':location, 'time':time, 'people':people, 'food': food } )
     print "added"
 
+#Test markers
 addMarker("Test","0,0","12:10","Me","Doughnuts");
 addMarker("Test","1,0","12:10","You","Blintzes");
 addMarker("Test","0,1","12:10","Some Guy","Fried Food");
 
+#updating fields
 def updateLocation(name, newLocation):
     cursor = db.markers.find({'name':name})
     marker = cursor.next()
@@ -67,6 +54,9 @@ def updateFood(name, newFood):
     db.markers.update( {'name':name}, {'name':name, 'location':location, 'time':time, 'people':people, 'food':newFood} )
     return True
 
+
+#get methods
+
 def getLocation(name):
     cursor = db.markers.find({'name':name})
     marker = cursor.next()
@@ -90,6 +80,8 @@ def getFood(name):
     marker = cursor.next()
     food = marker['food']
     return food
+    
+##### ^^^^^ markers ^^^^^ #####
 
 #Pulls markers from the database and makes something usable out of them.
 def getMarkers():
@@ -115,6 +107,8 @@ f.close()
 
 markers = getMarkers()
 
+##### web app #####
+
 @app.route("/", methods=['GET','POST'])
 def index():
     error = ""
@@ -124,32 +118,43 @@ def index():
         
         #signing up
         if request.form['b'] == "signUp":
+
             name = request.form['uname']
             password = request.form['pword']
+
+            #initializing the database
+            db.users.insert( {'name': "rebecca"})
+            
+            #finds (and counts) the number of times a username is in the database
             user = db.users.find( {'name':name} ).count()
+
             if user > 0:
+                #the number of documents in the database with that same name is not zero
                 error = "This username already exists"
-            else:
+            else: #creating a new document in the data base
                 db.users.insert( {'name': name, 'password': password} )
                 session['loggedIn'] = True
 
-        ##logging in
+        #logging in
+        #note: once you sign in, we log you in
+        
         name = request.form["uname"]
         password = request.form["pword"]
             
         user = db.users.find( {'name':name, 'password':password} ).count()
-        print user
+        #print user
         if user <= 0:
-            error = "Check your username or password"
+	    if error!="This username already exists":
+                error = "Check your username or password"
         else:
-            session["loggedIn"] = True
+            session["loggedIn"] = True #you are logged in!
 
     if session["loggedIn"]:
-        print session
-        return render_template("index.html", loggedIn = True, name = name, error = error, markers=markers)
+        return render_template("index.html", loggedIn = True, name = name, error = error)
     else:
-        return render_template("index.html", loggedIn = False, error = error, markers=markers)
+        return render_template("index.html", loggedIn = False, error = error)
 
+#login page
 @app.route("/login", methods=['GET','POST'])
 def login():
     return render_template("login.html")
@@ -158,4 +163,4 @@ def login():
 if __name__=="__main__":
     app.secret_key = "12345"
     app.debug=True
-    app.run(host="0.0.0.0",port=8000)
+    app.run()
