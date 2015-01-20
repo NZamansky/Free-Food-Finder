@@ -90,8 +90,7 @@ def getMarkers():
         script+="""var marker = new google.maps.Marker({
         position: new google.maps.LatLng("""+marker['location']+"""),
         map: map,
-        ////title: \""""+marker['food']+"""\"
-        });"""
+                });"""
     return script
 
 #Putting these into the read js file.
@@ -137,9 +136,12 @@ def index():
 
         #logging in
         #note: once you sign in, we log you in
-        
-        name = request.form["uname"]
-        password = request.form["pword"]
+        if request.form['b']=="Submit":
+            #def addMarker(name, location, time, people, food):
+            addMarker(request.form['foodName'],request.form['coordinates'],'','','')
+            
+       # name = request.form["uname"]
+       # password = request.form["pword"]
             
         user = db.users.find( {'name':name, 'password':password} ).count()
         #print user

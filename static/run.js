@@ -24,16 +24,18 @@ function initialize() {
     };
     map = new google.maps.Map(document.getElementById('map-canvas'),
 			      mapOptions);
-
+    
     var pos = new google.maps.LatLng(0,0);
     
     // Try HTML5 geolocation
     if(navigator.geolocation) {
 	navigator.geolocation.getCurrentPosition(function(position) {
 	    pos = new google.maps.LatLng(position.coords.latitude,
-					     position.coords.longitude);
-
+					 position.coords.longitude);
 	    map.setCenter(pos);
+	    coords = document.getElementById('hiddenField');
+	    console.log(coords);
+	    coords.value = ''+position.coords.latitude + ',' + position.coords.longitude;
 	}, function() {
 	    handleNoGeolocation(true);
 	});
@@ -44,304 +46,205 @@ function initialize() {
     var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,0),
         map: map,
-        ////title: "Doughnuts"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(1,0),
         map: map,
-        ////title: "Blintzes"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,1),
         map: map,
-        ////title: "Fried Food"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,0),
         map: map,
-        ////title: "Doughnuts"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(1,0),
         map: map,
-        ////title: "Blintzes"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,1),
         map: map,
-        ////title: "Fried Food"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,0),
         map: map,
-        ////title: "Doughnuts"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(1,0),
         map: map,
-        ////title: "Blintzes"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,1),
         map: map,
-        ////title: "Fried Food"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,0),
         map: map,
-        ////title: "Doughnuts"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(1,0),
         map: map,
-        ////title: "Blintzes"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,1),
         map: map,
-        ////title: "Fried Food"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,0),
         map: map,
-        ////title: "Doughnuts"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(1,0),
         map: map,
-        ////title: "Blintzes"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,1),
         map: map,
-        ////title: "Fried Food"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,0),
         map: map,
-        ////title: "Doughnuts"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(1,0),
         map: map,
-        ////title: "Blintzes"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,1),
         map: map,
-        ////title: "Fried Food"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,0),
         map: map,
-        ////title: "Doughnuts"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(1,0),
         map: map,
-        ////title: "Blintzes"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,1),
         map: map,
-        ////title: "Fried Food"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,0),
         map: map,
-        ////title: "Doughnuts"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(1,0),
         map: map,
-        ////title: "Blintzes"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,1),
         map: map,
-        ////title: "Fried Food"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,0),
         map: map,
-        ////title: "Doughnuts"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(1,0),
         map: map,
-        ////title: "Blintzes"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,1),
         map: map,
-        ////title: "Fried Food"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,0),
         map: map,
-        ////title: "Doughnuts"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(1,0),
         map: map,
-        ////title: "Blintzes"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,1),
         map: map,
-        ////title: "Fried Food"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,0),
         map: map,
-        ////title: "Doughnuts"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(1,0),
         map: map,
-        ////title: "Blintzes"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,1),
         map: map,
-        ////title: "Fried Food"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,0),
         map: map,
-        ////title: "Doughnuts"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(1,0),
         map: map,
-        ////title: "Blintzes"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,1),
         map: map,
-        ////title: "Fried Food"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,0),
         map: map,
-        ////title: "Doughnuts"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(1,0),
         map: map,
-        ////title: "Blintzes"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,1),
         map: map,
-        ////title: "Fried Food"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,0),
         map: map,
-        ////title: "Doughnuts"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(1,0),
         map: map,
-        ////title: "Blintzes"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,1),
         map: map,
-        ////title: "Fried Food"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(40.7176267,-74.013618),
+        map: map,
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,0),
         map: map,
-        ////title: "Doughnuts"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(1,0),
         map: map,
-        ////title: "Blintzes"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,1),
         map: map,
-        ////title: "Fried Food"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,0),
         map: map,
-        ////title: "Doughnuts"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(1,0),
         map: map,
-        ////title: "Blintzes"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,1),
         map: map,
-        ////title: "Fried Food"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,0),
         map: map,
-        ////title: "Doughnuts"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(1,0),
         map: map,
-        ////title: "Blintzes"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,1),
         map: map,
-        ////title: "Fried Food"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,0),
         map: map,
-        ////title: "Doughnuts"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(1,0),
         map: map,
-        ////title: "Blintzes"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,1),
         map: map,
-        ////title: "Fried Food"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,0),
         map: map,
-        ////title: "Doughnuts"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(1,0),
         map: map,
-        ////title: "Blintzes"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,1),
         map: map,
-        ////title: "Fried Food"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,0),
         map: map,
-        ////title: "Doughnuts"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(1,0),
         map: map,
-        ////title: "Blintzes"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,1),
         map: map,
-        ////title: "Fried Food"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,0),
         map: map,
-        ////title: "Doughnuts"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(1,0),
         map: map,
-        ////title: "Blintzes"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,1),
         map: map,
-        ////title: "Fried Food"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,0),
         map: map,
-        ////title: "Doughnuts"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(1,0),
         map: map,
-        ////title: "Blintzes"
-        });var marker = new google.maps.Marker({
+                });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,1),
         map: map,
-        ////title: "Fried Food"
-        });var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(0,0),
-        map: map,
-        ////title: "Doughnuts"
-        });var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(1,0),
-        map: map,
-        ////title: "Blintzes"
-        });var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(0,1),
-        map: map,
-        ////title: "Fried Food"
-        });var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(0,0),
-        map: map,
-        ////title: "Doughnuts"
-        });var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(1,0),
-        map: map,
-        ////title: "Blintzes"
-        });var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(0,1),
-        map: map,
-        ////title: "Fried Food"
-        });var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(0,0),
-        map: map,
-        ////title: "Doughnuts"
-        });var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(1,0),
-        map: map,
-        ////title: "Blintzes"
-        });var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(0,1),
-        map: map,
-        ////title: "Fried Food"
-        });
+                });
 }
 
 //Run the map
