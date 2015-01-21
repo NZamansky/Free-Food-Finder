@@ -111,10 +111,11 @@ markers = getMarkers()
 @app.route("/", methods=['GET','POST'])
 def index():
     error = ""
-    session["loggedIn"] = False
-    
+    #session["loggedIn"] = False
+
+    print 1
     if request.method == 'POST':
-        
+        '''
         #signing up
         if request.form['b'] == "signUp":
 
@@ -135,11 +136,13 @@ def index():
                 session['loggedIn'] = True
 
         #logging in
-        #note: once you sign in, we log you in
+        #note: once you sign in, we log you in'''
+
+        print 2
         if request.form['b']=="Submit":
             #def addMarker(name, location, time, people, food):
             addMarker(request.form['foodName'],request.form['coordinates'],'','','')
-            
+        '''
        # name = request.form["uname"]
        # password = request.form["pword"]
             
@@ -155,11 +158,17 @@ def index():
         return render_template("index.html", loggedIn = True, name = name, error = error)
     else:
         return render_template("index.html", loggedIn = False, error = error)
+'''
+        print 3
+    return render_template("index.html", error = error)
+            
 
+
+'''
 #login page
 @app.route("/login", methods=['GET','POST'])
 def login():
-    return render_template("login.html")
+    return render_template("login.html")'''
 
 
 if __name__=="__main__":

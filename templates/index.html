@@ -17,12 +17,13 @@
 
   <body>
     <font color=#FF0000>{{error}}</font>
+    <!--
     {% if loggedIn == True %}
     You are logged in as {{ name }}
     {% else %}
     You are not logged in, log in or sign up <a href="/login"> HERE </a>
     {% endif %}
-
+    -->
 
     <div id="map-canvas"></div>
 
@@ -34,16 +35,12 @@
           
 	<input type="submit" name="b" value="Submit" class="pure-button pure-button-primary" formaction= "/">
 	
-	
-	<br>
-	 
-	
-	
 	</fieldset>
     </form>
+<!--
 <form method="POST",  class="pure-form">
     <input type="submit" name="b" value="Log Out" class="pure-button pure-button-primary" formaction= "/login">
-</form>
+</form>-->
 
    </body>
 </html>
