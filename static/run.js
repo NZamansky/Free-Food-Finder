@@ -109,6 +109,30 @@ function initialize() {
         position: new google.maps.LatLng(0,1),
         map: map,
         ////title: "Fried Food"
+        });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,0),
+        map: map,
+        ////title: "Doughnuts"
+        });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(1,0),
+        map: map,
+        ////title: "Blintzes"
+        });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,1),
+        map: map,
+        ////title: "Fried Food"
+        });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,0),
+        map: map,
+        ////title: "Doughnuts"
+        });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(1,0),
+        map: map,
+        ////title: "Blintzes"
+        });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,1),
+        map: map,
+        ////title: "Fried Food"
         });
 }
 
