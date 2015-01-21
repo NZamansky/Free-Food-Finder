@@ -24,16 +24,18 @@ function initialize() {
     };
     map = new google.maps.Map(document.getElementById('map-canvas'),
 			      mapOptions);
-
+    
     var pos = new google.maps.LatLng(0,0);
     
     // Try HTML5 geolocation
     if(navigator.geolocation) {
 	navigator.geolocation.getCurrentPosition(function(position) {
 	    pos = new google.maps.LatLng(position.coords.latitude,
-					     position.coords.longitude);
-
+					 position.coords.longitude);
 	    map.setCenter(pos);
+	    coords = document.getElementById('hiddenField');
+	    console.log(coords);
+	    coords.value = ''+position.coords.latitude + ',' + position.coords.longitude;
 	}, function() {
 	    handleNoGeolocation(true);
 	});
