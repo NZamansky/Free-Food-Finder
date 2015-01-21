@@ -138,7 +138,7 @@ def index():
         #logging in
         #note: once you sign in, we log you in'''
 
-        print 2
+        #print 2
         if request.form['b']=="Submit":
             #def addMarker(name, location, time, people, food):
             addMarker(request.form['foodName'],request.form['coordinates'],'','','')
@@ -159,7 +159,7 @@ def index():
     else:
         return render_template("index.html", loggedIn = False, error = error)
 '''
-        print 3
+        #print 3
     return render_template("index.html", error = error)
             
 
