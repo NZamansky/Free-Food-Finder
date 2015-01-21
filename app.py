@@ -141,7 +141,7 @@ def index():
         print 2
         if request.form['b']=="Submit":
             #def addMarker(name, location, time, people, food):
-            addMarker(request.form['foodName'],request.form['coordinates'],'','','')
+            addMarker(request.form['name'],request.form['coordinates'],request.form['time'],request.form['people'],request.form['type'])
         '''
        # name = request.form["uname"]
        # password = request.form["pword"]
