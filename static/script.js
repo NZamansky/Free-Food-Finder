@@ -24,7 +24,7 @@ function initialize() {
     };
     map = new google.maps.Map(document.getElementById('map-canvas'),
 			      mapOptions);
-    
+    console.log(map);
     var pos = new google.maps.LatLng(0,0);
     
     // Try HTML5 geolocation
