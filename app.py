@@ -13,9 +13,9 @@ def addMarker(name, location, time, people, food):
     print "added"
 
 #Test markers
-addMarker("Test","0,0","12:10","Me","Doughnuts");
-addMarker("Test","1,0","12:10","You","Blintzes");
-addMarker("Test","0,1","12:10","Some Guy","Fried Food");
+#addMarker("Test","0,0","12:10","Me","Doughnuts");
+#addMarker("Test","1,0","12:10","You","Blintzes");
+#addMarker("Test","0,1","12:10","Some Guy","Fried Food");
 
 #updating fields
 def updateLocation(name, newLocation):
@@ -140,6 +140,7 @@ def index():
 
         #print 2
         if request.form['b']=="Submit":
+	    print "Submit has been hit"
             #def addMarker(name, location, time, people, food):
             addMarker(request.form['name'],request.form['coordinates'],request.form['time'],request.form['people'],request.form['type'])
         '''

@@ -35,7 +35,7 @@ function initialize() {
 	    map.setCenter(pos);
 	    coords = document.getElementById('hiddenField');
 	    console.log(coords);
-	    coords.value = ''+position.coords.latitude + ',' + position.coords.longitude;
+	    coords.value = ''+position.coords.latitude+ ',' + position.coords.longitude;
 	}, function() {
 	    handleNoGeolocation(true);
 	});
@@ -279,6 +279,84 @@ function initialize() {
         map: map,
                 });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,1),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(1,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,1),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(1,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,1),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(40.717570599999995,-74.0136273),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(40.717570599999995,-74.0136273),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(40.717579,-74.0135289),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(40.717579,-74.0135289),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(40.717579,-74.0135289),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(40.717579,-74.0135289),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(40.717579,-74.0135289),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(40.717574899999995,-74.0135502),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(1,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,100),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(40.717574899999995,-74.0135502),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(1,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,1),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(40.717574899999995,-74.0135502),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(40.717574899999995,-74.0135502),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(40.717574899999995,-74.0135502),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(40.7175383,-74.0135353),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(40.7175383,-74.0135353),
         map: map,
                 });
 }
