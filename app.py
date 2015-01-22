@@ -1,5 +1,6 @@
 from flask import Flask,request,redirect,render_template,session
 from pymongo import Connection,MongoClient
+import time
 
 app=Flask(__name__)
 
@@ -10,8 +11,11 @@ db = conn['free-food-finder']
     
 def addMarker(name, location, time, people, food):
     db.markers.insert( {'name': name, 'location':location, 'time':time, 'people':people, 'food': food } )
-    print "added"
+   
 
+def removeMarker(name):
+    db.markers.remove( {'name':name} )
+    
 #Test markers
 addMarker("Test","0,0","12:10","Me","Doughnuts");
 addMarker("Test","1,0","12:10","You","Blintzes");
@@ -113,7 +117,6 @@ def index():
     error = ""
     #session["loggedIn"] = False
 
-    print 1
     if request.method == 'POST':
         '''
         #signing up
@@ -138,9 +141,9 @@ def index():
         #logging in
         #note: once you sign in, we log you in'''
 
-        print 2
         if request.form['b']=="Submit":
-            #def addMarker(name, location, time, people, food):
+            time = time.asctime( time.localtime(time.time() ) )
+            #addMarker(name, location, time, people, food)
             addMarker(request.form['name'],request.form['coordinates'],request.form['time'],request.form['people'],request.form['type'])
         '''
        # name = request.form["uname"]
@@ -159,7 +162,7 @@ def index():
     else:
         return render_template("index.html", loggedIn = False, error = error)
 '''
-        print 3
+       
     return render_template("index.html", error = error)
             
 
