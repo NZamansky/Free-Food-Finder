@@ -85,14 +85,15 @@ def getMarkers():
     script= ""
     counter=0;
     for marker in db.markers.find():
+	
         script+="""
         var infowindow"""+str(counter)+""" = new google.maps.InfoWindow({
-            content: '"""+marker['food']+"""',
+            content: '"""+str(marker['food'])+"""',
             //pixelOffset: 10
             });
 
         var marker"""+str(counter)+""" = new google.maps.Marker({
-        position: new google.maps.LatLng("""+marker['location']+"""),
+        position: new google.maps.LatLng("""+str(marker['location'])+"""),
          map: map,
                 });
 
