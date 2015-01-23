@@ -175,8 +175,134 @@ function initialize() {
                 });var marker = new google.maps.Marker({
         position: new google.maps.LatLng(0,1),
         map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(1,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,1),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(1,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,1),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(1,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,1),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(1,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,1),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(1,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,1),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(1,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,1),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(1,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,1),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(1,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,1),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(1,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,1),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(1,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,1),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(1,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,1),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(1,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,1),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(1,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,1),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(1,0),
+        map: map,
+                });var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(0,1),
+        map: map,
                 });
 }
 
 //Run the map
-google.maps.event.addDomListener(window, 'load', initialize);
+google.maps.event.addDomListener(window, 'load', initialize)

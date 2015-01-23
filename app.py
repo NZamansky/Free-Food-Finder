@@ -141,10 +141,16 @@ def index():
         #logging in
         #note: once you sign in, we log you in'''
 
+        time = time.asctime( time.localtime(time.time() ) )
+        print time
+        #time = time[11:19] # gets just the time
+        hour = time[0:2]
+        minute = time[3:5]
+        second = time[6:9]
+
         if request.form['b']=="Submit":
-            time = time.asctime( time.localtime(time.time() ) )
             #addMarker(name, location, time, people, food)
-            addMarker(request.form['name'],request.form['coordinates'],request.form['time'],request.form['people'],request.form['type'])
+            addMarker(request.form['name'],request.form['coordinates'],time,request.form['people'],request.form['type'])
         '''
        # name = request.form["uname"]
        # password = request.form["pword"]
@@ -162,7 +168,20 @@ def index():
     else:
         return render_template("index.html", loggedIn = False, error = error)
 '''
-       
+    #go through markers, if more than 2 seconds, delete marker
+    
+
+    for marker in db.markers.find():
+        print 1
+        t = marker['time']
+        print "time"
+        print t
+        n = marker['name']
+        markersecs = int(t[6:9])
+        print markersecs
+        if (seconds - markersecs) > 20:
+            removeMarker(n)
+            print removed
     return render_template("index.html", error = error)
             
 
