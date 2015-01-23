@@ -35,7 +35,7 @@ function initialize() {
 	    map.setCenter(pos);
 	    coords = document.getElementById('hiddenField');
 	    console.log(coords);
-	    coords.value = ''+position.coords.latitude + ',' + position.coords.longitude;
+	    coords.value = ''+position.coords.latitude+ ',' + position.coords.longitude;
 	}, function() {
 	    handleNoGeolocation(true);
 	});
