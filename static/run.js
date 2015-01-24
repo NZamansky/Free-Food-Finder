@@ -44,6 +44,7 @@ function initialize() {
 	handleNoGeolocation(false);
     }
     
+<<<<<<< HEAD
         var infowindow0 = new google.maps.InfoWindow({
             content: 'Doughnuts',
             //pixelOffset: 10
@@ -1287,7 +1288,9 @@ function initialize() {
                 });
 
         google.maps.event.addListener(marker112, 'click', function(){infowindow112.open(map,marker112);});
+=======
+>>>>>>> rebecca
 }
 
 //Run the map
-google.maps.event.addDomListener(window, 'load', initialize);
+google.maps.event.addDomListener(window, 'load', initialize)
