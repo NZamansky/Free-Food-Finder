@@ -1,5 +1,6 @@
 from flask import Flask,request,redirect,render_template
 from pymongo import Connection,MongoClient
+import time
 
 app=Flask(__name__)
 
@@ -10,9 +11,12 @@ db = conn['free-food-finder']
     
 def addMarker(name, location, time, people, food):
     db.markers.insert( {'name': name, 'location':location, 'time':time, 'people':people, 'food': food } )
-    print "added"
+   
 
-#Test markers
+
+def removeMarker(name):
+    db.markers.remove( {'name':name} )
+    
 
 #updating fields
 def updateLocation(name, newLocation):
@@ -80,6 +84,7 @@ def getFood(name):
     
 ##### ^^^^^ markers ^^^^^ #####
 
+
 #Pulls markers from the database and makes something usable out of them.
 def getMarkers():
     script= ""
@@ -122,64 +127,47 @@ def index():
     
     #session["loggedIn"] = False
 
-    print 1
+    ti = time.asctime( time.localtime(time.time() ) )
+   # print ti
+    ti = ti[11:19] # gets just the time
+    hours = ti[0:2]
+    minutes = ti[3:5]
+    minutes = int(minutes)
+    seconds = ti[6:9]
+    seconds = int(seconds)
+        
     if request.method == 'POST':
-        '''
-        #signing up
-        if request.form['b'] == "signUp":
+        
 
-            name = request.form['uname']
-            password = request.form['pword']
-
-            #initializing the database
-            db.users.insert( {'name': "rebecca"})
-            
-            #finds (and counts) the number of times a username is in the database
-            user = db.users.find( {'name':name} ).count()
-
-            if user > 0:
-                #the number of documents in the database with that same name is not zero
-                error = "This username already exists"
-            else: #creating a new document in the data base
-                db.users.insert( {'name': name, 'password': password} )
-                session['loggedIn'] = True
-
-        #logging in
-        #note: once you sign in, we log you in'''
-
-        #print 2
+       
         if request.form['b']=="Submit":
-	    print "Submit has been hit"
-            #def addMarker(name, location, time, people, food):
-            addMarker(request.form['name'],request.form['coordinates'],request.form['time'],request.form['people'],request.form['type'])
-        '''
-       # name = request.form["uname"]
-       # password = request.form["pword"]
+            tim = time.asctime( time.localtime(time.time() ) )
+            tim = ti[11:19]
+            #addMarker(name, location, time, people, food)
+            addMarker(request.form['name'],request.form['coordinates'],tim,request.form['people'],request.form['type'])
             
-        user = db.users.find( {'name':name, 'password':password} ).count()
-        #print user
-        if user <= 0:
-	    if error!="This username already exists":
-                error = "Check your username or password"
-        else:
-            session["loggedIn"] = True #you are logged in!
-
-    if session["loggedIn"]:
-        return render_template("index.html", loggedIn = True, name = name, error = error)
-    else:
-        return render_template("index.html", loggedIn = False, error = error)
-'''
-        #print 3
+    #go through markers, if more than 2 seconds, delete marker
+    
+    #addMarker('t1', 'here', '11:25:30', 20, 'yummy')
+    #removeMarker('t2')
+    #removeMarker('t1')
+    for marker in db.markers.find():
+        n = marker['name']
+        #removeMarker(n)
+        #print n
+        t = marker['time']
+        #print "marker time" 
+        #print t
+        t = t[3:5]
+        #print t
+        markermin = int(t)
+        #print markermin
+        #print minutes - markermin
+        if (minutes - markermin) > 2:
+            removeMarker(n)
+            print "removed"
     return render_template("index.html", error = error)
             
-
-
-'''
-#login page
-@app.route("/login", methods=['GET','POST'])
-def login():
-    return render_template("login.html")'''
-
 
 
 if __name__=="__main__":
