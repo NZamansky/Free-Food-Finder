@@ -23,5 +23,9 @@ Stuff to add later:
 * Tags/categories
  * Searching for types of food
 * Time/place specified markers (for certified vendors)
+* 
+
+We eventually eliminated the whole login everything, because while technically functional, it contributed nothing to the project but clutter.
 
 YouTube Video: https://www.youtube.com/watch?v=W4AQddFiyCM
+When the project is running, it may be found here: http://104.131.178.113:5000/
