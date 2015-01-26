@@ -150,8 +150,10 @@ def index():
             f.close()
             
     #go through markers, if more than 2 seconds, delete marker
-    #addMarker('tester', '0,0', '12:49:10', 0, 'yummy')
     
+    #addMarker('t1', 'here', '11:25:30', 20, 'yummy')
+    #removeMarker('t2')
+    #removeMarker('t1')
     for marker in db.markers.find():
         n = marker['name']
         #removeMarker(n)
@@ -161,13 +163,12 @@ def index():
         #print t
         t = t[3:5]
         #print t
-        if t != "": #just in case time is accidentally empty
-            markermin = int(t)
-            #print markermin
-            #print minutes - markermin
-            if (minutes - markermin) >= 1:
-                removeMarker(n)
-                #print "removed"
+        markermin = int(t)
+        #print markermin
+        #print minutes - markermin
+        if (minutes - markermin) > 2:
+            removeMarker(n)
+            print "removed"
     return render_template("index.html", error = error)
             
 
