@@ -165,7 +165,7 @@ def index():
             markermin = int(t)
             #print markermin
             #print minutes - markermin
-            if (minutes - markermin) >= 1:
+            if (minutes - markermin) >= 30:
                 removeMarker(n)
                 #print "removed"
     return render_template("index.html", error = error)
