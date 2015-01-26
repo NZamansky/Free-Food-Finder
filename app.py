@@ -106,16 +106,7 @@ def getMarkers():
         counter = counter + 1
     return script
 
-#Putting these into the read js file.
-f = open("static/script.js",'r')
-script = f.read()
-f.close()
 
-script = script.replace("//Insert markers here",getMarkers())
-
-f = open("static/run.js",'w')
-f.write(script)
-f.close()
 
 markers = getMarkers()
 
@@ -124,7 +115,8 @@ markers = getMarkers()
 @app.route("/", methods=['GET','POST'])
 def index():
     error = ""
-    
+
+
     #session["loggedIn"] = False
 
     ti = time.asctime( time.localtime(time.time() ) )
@@ -145,6 +137,17 @@ def index():
             tim = ti[11:19]
             #addMarker(name, location, time, people, food)
             addMarker(request.form['name'],request.form['coordinates'],tim,request.form['people'],request.form['type'])
+                
+            #Putting markers into the read js file.
+            f = open("static/script.js",'r')
+            script = f.read()
+            f.close()
+            
+            script = script.replace("//Insert markers here",getMarkers())
+            
+            f = open("static/run.js",'w')
+            f.write(script)
+            f.close()
             
     #go through markers, if more than 2 seconds, delete marker
     
