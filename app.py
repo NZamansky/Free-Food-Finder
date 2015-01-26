@@ -91,18 +91,17 @@ def getMarkers():
     counter=0;
     for marker in db.markers.find():
 	
-        script+="""
-        var infowindow"""+str(counter)+""" = new google.maps.InfoWindow({
-            content: '"""+str(marker['food'])+"""',
+        script+='''var infowindow'''+str(counter)+''' = new google.maps.InfoWindow({
+            content: "'''+str(marker['food']).replace('"',"'")+'''",
             //pixelOffset: 10
             });
 
-        var marker"""+str(counter)+""" = new google.maps.Marker({
-        position: new google.maps.LatLng("""+str(marker['location'])+"""),
+        var marker'''+str(counter)+''' = new google.maps.Marker({
+        position: new google.maps.LatLng('''+str(marker['location'])+'''),
          map: map,
                 });
 
-        google.maps.event.addListener(marker"""+str(counter)+""", 'click', function(){infowindow"""+str(counter)+""".open(map,marker"""+str(counter)+""");});"""
+        google.maps.event.addListener(marker'''+str(counter)+''', 'click', function(){infowindow'''+str(counter)+'''.open(map,marker'''+str(counter)+''');});'''
         counter = counter + 1
     return script
 
@@ -116,6 +115,15 @@ markers = getMarkers()
 def index():
     error = ""
 
+    f = open("static/script.js",'r')
+    script = f.read()    
+    f.close()
+
+    script = script.replace("//Insert markers here",getMarkers())
+
+    f = open("static/run.js",'w')
+    f.write(script)
+    f.close
 
     #session["loggedIn"] = False
 
@@ -127,6 +135,7 @@ def index():
     minutes = int(minutes)
     seconds = ti[6:9]
     seconds = int(seconds)
+
         
     if request.method == 'POST':
         
@@ -139,15 +148,7 @@ def index():
             addMarker(request.form['name'],request.form['coordinates'],tim,request.form['people'],request.form['type'])
                 
             #Putting markers into the read js file.
-            f = open("static/script.js",'r')
-            script = f.read()
-            f.close()
             
-            script = script.replace("//Insert markers here",getMarkers())
-            
-            f = open("static/run.js",'w')
-            f.write(script)
-            f.close()
             
     #go through markers, if more than 2 seconds, delete marker
     #addMarker('tester', '0,0', '12:49:10', 0, 'yummy')
