@@ -27,5 +27,7 @@ Stuff to add later:
 
 We eventually eliminated the whole login everything, because while technically functional, it contributed nothing to the project but clutter.
 
+NOTE: For whatever reason, the markers are not self-deleting. This will be looked into. But not right now. The project's due now and we don't want to accidentally mess it up more.
+
 YouTube Video: https://www.youtube.com/watch?v=W4AQddFiyCM
 When the project is running, it may be found here: http://104.131.178.113:5000/
